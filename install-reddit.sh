@@ -72,7 +72,7 @@ fi
 source /etc/lsb-release
 if [ "$DISTRIB_ID" != "Ubuntu" -o "$DISTRIB_RELEASE" != "11.04" ]; then
     echo "ERROR: Only Ubuntu 11.04 is supported."
-    exit 1
+    #exit 1
 fi
 
 ###############################################################################
