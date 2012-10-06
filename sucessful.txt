@@ -1,0 +1,35 @@
+Congratulations! reddit is now installed.
+
+The reddit application code is managed with upstart, to see what's currently
+running, run
+
+    sudo initctl list | grep reddit
+
+Cron jobs start with "reddit-job-" and queue processors start with
+"reddit-consumer-". The crons are managed by /etc/cron.d/reddit. You can
+initiate a restart of all the consumers by running:
+
+    sudo initctl emit reddit-restart
+
+or target specific ones:
+
+    sudo initctl emit reddit-restart TARGET=scraper_q
+
+See the GitHub wiki for more information on these jobs:
+
+* https://github.com/reddit/reddit/wiki/Cron-jobs
+* https://github.com/reddit/reddit/wiki/Services
+
+Now that the core of reddit is installed, you may want to do some additional
+steps:
+
+* Add "reddit.local" to your /etc/hosts file as an alias for 127.0.0.1
+  (or add it to your host OS's resolver configuration if running in a VM)
+
+* To populate the database with test data, run:
+
+    cd /home/reddit/reddit/r2
+    paster run run.ini r2/models/populatedb.py -c 'populate()'
+
+* Manually run reddit-job-update_reddits immediately after populating the db
+  or adding your own subreddits.
