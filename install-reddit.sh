@@ -107,7 +107,7 @@ apt-get update
 # install prerequisites
 cat <<PACKAGES | xargs apt-get install $APTITUDE_OPTIONS
 git-core
-
+libmemcached-dev
 python-dev
 python-setuptools
 python-routes
