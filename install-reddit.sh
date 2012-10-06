@@ -129,7 +129,7 @@ python-pycaptcha
 python-amqplib
 python-pylibmc
 python-bcrypt
-python-python-statsd
+python-statsd
 python-snudown
 python-l2cs
 python-cjson
